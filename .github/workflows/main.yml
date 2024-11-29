@@ -6,7 +6,8 @@ name: Run Python Tests
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "documentation_466224" ]
+    branches:
+      - documentation_466224
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -28,6 +29,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: Checkout Repository
       uses: actions/checkout@v4
+
+    - name: Debug
+      run: |
+        echo "OS: $RUNNER_OS"
+        echo "Processor Architecture: $RUNNER_ARCH"
 
     - name: Set Up Python
       uses: actions/setup-python@v4
